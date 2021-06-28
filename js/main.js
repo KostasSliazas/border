@@ -53,8 +53,6 @@
     bo.style.borderBottomColor = document.getElementById('bottomc').value || '#000'
     bo.style.borderTopColor = document.getElementById('topc').value || '#000'
     const string = '.element {\n' +
-          'height:0;\n' +
-          'width:0;\n' +
           'border-left:' + bo.style.borderLeft + ';' +
           '\nborder-right:' + bo.style.borderRight + ';' +
           '\nborder-top:' + bo.style.borderTop + ';' +
