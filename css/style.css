@@ -4,7 +4,7 @@ body {
 }
 
 body {
-    color: #eee;
+    color: #aaa;
     font: 16px/1.5em Arial, Geneva, Tahoma, sans-serif;
     margin: 0;
     position: relative;
@@ -114,7 +114,7 @@ h5 {
 
 .uarrow,
 .darrow {
-    border-color: #eee transparent;
+    border-color: #aaa transparent;
     border-style: solid;
     height: 0;
     width: 0;
@@ -163,16 +163,13 @@ h5 {
 }
 
 .borderspa {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    background: #fff;
+    background: #aaa;
 }
 
 #botext {
-    color: #000;
+    color: #333;
     line-height: 1;
-    background: #fff;
+    background: #aaa;
     padding: 24px 0;
     align-items: center;
     display: flex;
@@ -215,7 +212,7 @@ h5 {
 }
 
 select {
-    background: #eee;
+    background: #aaa;
     padding: 0;
     border: 0;
     -webkit-appearance: button;
