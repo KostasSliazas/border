@@ -14,19 +14,19 @@
     return (this.number -= 1)
   }
   const lg = new Arrows(0)
-
   document.addEventListener('click', updateArrows)
+  document.addEventListener('input', updateArrows)
   document.addEventListener('change', updateArrows)
 
   function updateArrows (e) {
     if (e.target.tagName === 'DIV' || e.target.tagName === 'SELECT') {
-      if (e.target.parentElement.getElementsByTagName('span')) {
-        const g = Number(e.target.parentElement.getElementsByTagName('span')[0].innerText)
+      if (e.target.parentElement.getElementsByTagName('input')) {
+        const g = Number(e.target.parentElement.getElementsByTagName('input')[0].value)
         if (e.target.className === 'uarrow' && g < 100) {
-          e.target.parentElement.getElementsByTagName('SPAN')[0].innerHTML = lg.up(g)
+          e.target.parentElement.getElementsByTagName('input')[0].value = lg.up(g)
         }
         if (e.target.className === 'darrow' && g > 0) {
-          e.target.parentElement.getElementsByTagName('SPAN')[0].innerHTML = lg.dn(g)
+          e.target.parentElement.getElementsByTagName('input')[0].value = lg.dn(g)
         }
         borders()
       }
@@ -40,7 +40,7 @@
     const ge = document.getElementsByClassName('arows')
     const arr = []
     for (let i = 0; i < ge.length; i++) {
-      arr.push(ge[i].getElementsByTagName('span')[0].innerHTML)
+      arr.push(ge[i].getElementsByTagName('input')[0].value)
     }
     bo.style.borderStyle = 'solid'
     bo.style.borderColor = '#643678'
