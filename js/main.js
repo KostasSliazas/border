@@ -15,12 +15,11 @@
   }
   const lg = new Arrows(0)
   document.addEventListener('click', updateArrows)
-  document.addEventListener('input', updateArrows)
   document.addEventListener('change', updateArrows)
 
   function updateArrows (e) {
-    if (e.target.tagName === 'DIV' || e.target.tagName === 'SELECT') {
-      if (e.target.parentElement.getElementsByTagName('input')) {
+    if (e.target.parentElement.className === 'arows' && typeof e.target.parentElement.getElementsByTagName('input')[0] !== 'undefined') {
+      if (e.target.tagName === 'DIV' || e.target.tagName === 'SELECT') {
         const g = Number(e.target.parentElement.getElementsByTagName('input')[0].value)
         if (e.target.className === 'uarrow' && g < 100) {
           e.target.parentElement.getElementsByTagName('input')[0].value = lg.up(g)
@@ -28,8 +27,9 @@
         if (e.target.className === 'darrow' && g > 0) {
           e.target.parentElement.getElementsByTagName('input')[0].value = lg.dn(g)
         }
-        borders()
       }
+      e.target.parentElement.getElementsByTagName('input')[0].value = e.target.parentElement.getElementsByTagName('input')[0].value.length > 0 && Number.isInteger(+e.target.parentElement.getElementsByTagName('input')[0].value) ? e.target.parentElement.getElementsByTagName('input')[0].value : 0
+      borders()
     }
   }
   borders()
@@ -61,7 +61,10 @@
   }
 
   document.getElementById('botext').addEventListener('click', function (e) {
-    const hs = document.execCommand('copy')
-    if (hs) window.alert('text copied')
+    try {
+      document.execCommand('copy')
+    } catch {
+      throw new Error('error: not copied')
+    }
   })
 }())
